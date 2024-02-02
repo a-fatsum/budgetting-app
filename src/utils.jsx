@@ -23,3 +23,20 @@ export function setItems(list, expenses, expensesTotal) {
     );
   } catch (e) {}
 }
+
+//
+//
+//
+// CalculateTotal
+export function calculateTotal(arr) {
+  const amounts = [];
+  arr.forEach((el) => {
+    amounts.push(el.amount);
+  });
+  return amounts.reduce((sum, num) => {
+    return Number(sum) + Number(num);
+  }, 0);
+}
+//
+//
+//
