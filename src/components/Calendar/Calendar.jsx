@@ -7,11 +7,14 @@ import {
   getDay,
   isToday,
   startOfMonth,
+  addDays,
+  subDays,
 } from "date-fns"; //
 //
 import { useMemo } from "react"; //
 //
 //
+import { clsx } from "clsx";
 ////
 //
 //
@@ -42,47 +45,46 @@ const Calendar = () => {
     start: firstDayOfMonth,
     end: lastDayOfMonth,
   });
+
+  const startingDayIndex = getDay(firstDayOfMonth);
   //
   return (
-    <div className="calendar-container container">
-      <div className="row gx-4">
-        <div className="col-4">
-          <p className="p-3 fs-5 boorder bg-light">Hello</p>
+    <div className="container calendar-container">
+      <div className="card">
+        <div className="card-header">
+          <h2 className="text-center">{format(currentDate, "MMMM yyyy")}</h2>
         </div>
-        <div className="col-8">
-          <p className="p-3 fs-5 boorder bg-light">Hey</p>
-        </div>
-        <div className="col-3">
-          <p className="p-3 fs-3 boorder bg-light">Hi</p>
-        </div>
-      </div>
-      {/* <h3> Calendar</h3>
-      <div className="mb-4 ">
-        <h3> {format(currentDate, "MMMM, yyyy")} </h3>
-      </div>
-      <div className=" container  calendar-body-container ">
-        <div className="row row-cols-7  gap-2 no-padding ">
+        <div className=" calendar-datesAndDays gap-2">
+          {/* days of the WEEK */}
+
           {WEEKDAYS.map((day) => {
             return (
-              <div className="col border border-secondary" key={day}>
+              <div className=" border gap-2" key={day}>
                 {day}
               </div>
             );
           })}
+
+          {Array.from({ length: startingDayIndex }).map((_, index) => {
+            return <div className="border gap-2" key={`empty-${index}`}></div>;
+          })}
+
+          {/* days of the MONTH */}
+
           {daysInMonth.map((day, index) => {
             return (
               <div
-                className="col  border border-secondary p-2 text-center"
+                className={clsx("border gap-2", {
+                  today: isToday(day),
+                })}
                 key={index}
               >
-                {" "}
                 {format(day, "d")}{" "}
               </div>
             );
           })}
         </div>
-        <div className="grid  gap-0 no-padding "></div>
-      </div> */}
+      </div>
     </div>
   );
 };

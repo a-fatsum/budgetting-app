@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*  */
+
 body {
   background-color: rgba(128, 128, 128, 0.292);
   font-family: "Roboto", sans-serif;
@@ -51,7 +57,7 @@ form button {
   border: 3px dashed coral;
   border-radius: 5px;
   padding: 1rem;
-  width: fit-content;
+  /* width: fit-content; */
   margin: auto;
 }
 .expenses-income-savings-wrapper {
@@ -231,7 +237,7 @@ span {
 /* Calendar-container */
 
 .calendar-container {
-  background-color: rgba(128, 128, 128, 0.267);
+  background-color: rgba(128, 128, 128, 0.151);
   display: block;
   /* position: absolute; */
   /* right: 15rem; */
@@ -242,4 +248,25 @@ span {
 
 .calendar-body-container {
   /* min-width: 100vw; */
+}
+
+.col {
+  background-color: #2c78f341;
+}
+
+.calendar-datesAndDays {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+  /* grid-template-columns: 5fr; */
+
+  grid-gap: 15px;
+}
+
+/* .text-gray-2209 {
+  background-color: #2c79f3;
+} */
+
+.today {
+  background-color: #33302da6;
+  color: #ffffff;
 }
