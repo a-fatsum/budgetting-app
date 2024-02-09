@@ -1,3 +1,14 @@
+import {
+  add,
+  differenceInDays,
+  endOfMonth,
+  format,
+  setDate,
+  startOfMonth,
+  sub,
+} from "date-fns";
+
+//
 export function getExpense() {
   const expenses = { list: [], expenses: [], expensesTotal: [] };
 
@@ -40,3 +51,16 @@ export function calculateTotal(arr) {
 //
 //
 //
+
+//
+//
+//
+//Calculate  regular deposits - return an obkect with a list of dates and balances
+// CalculatDeposits
+export function CalculateDeposits(
+  type
+  // initDate, deposit, initBalance
+) {
+  const cycle = type === "weekly" ? 7 : type === "fortnightly" ? 14 : 30;
+  console.log(cycle);
+}

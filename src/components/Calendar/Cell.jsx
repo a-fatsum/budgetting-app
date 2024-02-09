@@ -25,7 +25,7 @@ const Cell: React.FC<Props> = ({
         className
       )}
     >
-      {children} {"xxxx"}
+      {children}
     </div>
   );
 };

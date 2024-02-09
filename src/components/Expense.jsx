@@ -6,7 +6,7 @@ const Expense = ({ name, amount, dueDate, type }) => {
     console.log("Delete");
   };
   //
-
+  const x = "BALANCE";
   //
   //
   const formattedDate = `${new Date(dueDate).getDate()} - ${new Date(
@@ -18,8 +18,9 @@ const Expense = ({ name, amount, dueDate, type }) => {
   return (
     <div>
       <div className="expense">
-        <h4> {name} </h4> <h4>${amount}</h4> <h4>{formattedDate}</h4>{" "}
-        <h4>{type}</h4>
+        {" "}
+        {name} {amount} {formattedDate} {type}
+        <div className="border">{`Balance on ${formattedDate}: ${x}`}</div>
         <button className="trash-btn" onClick={onDelete}>
           <i className="fas fa-trash"></i>
         </button>

@@ -4,7 +4,7 @@ import Form from "./components/Form";
 // import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "../bootstrap/dist/js/bootstrap.min.css ";
-
+import "react-datepicker/dist/react-datepicker.css";
 //
 
 function App() {
