@@ -55,7 +55,7 @@ export function calculateTotal(arr) {
 //
 //
 //
-//Calculate  regular deposits - return an obkect with a list of dates and balances
+//Calculate  regular deposits - return an object with a list of dates and balances
 // CalculatDeposits
 export function CalculateDeposits(
   array
