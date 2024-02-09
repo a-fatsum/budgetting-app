@@ -58,9 +58,18 @@ export function calculateTotal(arr) {
 //Calculate  regular deposits - return an obkect with a list of dates and balances
 // CalculatDeposits
 export function CalculateDeposits(
-  type
-  // initDate, deposit, initBalance
+  array
+  //  initDate, deposit, initBalance
 ) {
-  const cycle = type === "weekly" ? 7 : type === "fortnightly" ? 14 : 30;
-  console.log(cycle);
+  array.map((el) => {
+    const cycle =
+      el.type === "weekly"
+        ? 7
+        : el.type === "fortnightly"
+        ? 14
+        : el.type === "monthly"
+        ? 30
+        : "one-off";
+    console.log(el);
+  });
 }

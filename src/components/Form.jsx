@@ -13,8 +13,9 @@ const Form = () => {
   const [expenses, setExpenses] = useState(() => getExpense().expenses);
   //
   //
-  const [incomeBalance, setIncomeBalance] = useState("");
-  const [incomeDeposit, setIncomeDeposit] = useState("");
+  const [regularIncome, setRegularIncome] = useState([]);
+  //
+  const [incomeDeposit, setIncomeDeposit] = useState([]);
   //
   return (
     <div className="main-container">
@@ -34,11 +35,9 @@ const Form = () => {
 
         <div className="income-savings-wrapper">
           <Income
-            // income={income}
-            // setIncome={setIncome}
+            setRegularIncome={setRegularIncome}
+            regularIncome={regularIncome}
             //
-            incomeBalance={incomeBalance}
-            setIncomeBalance={setIncomeBalance}
             incomeDeposit={incomeDeposit}
             setIncomeDeposit={setIncomeDeposit}
           ></Income>
