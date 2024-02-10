@@ -45,7 +45,7 @@ const Income = ({
         : type === "fortnightly"
         ? 14
         : type === "monthly"
-        ? 30
+        ? true
         : "one-off";
     const dates = [];
     const nextYearDate = addYears(new Date(date), 1);
