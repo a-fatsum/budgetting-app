@@ -35,11 +35,11 @@ const Income = ({
   //
   const [incomeBalance, setIncomeBalance] = useState("");
   //
-  //
+  // dates
   const createIncomeDeposit = (amount, date, type) => {
     const id = new Date().valueOf();
     //
-    const cycle =
+    let cycle =
       type === "weekly"
         ? 7
         : type === "fortnightly"
@@ -52,17 +52,17 @@ const Income = ({
     let newDate = new Date(date);
     //
     while (newDate <= nextYearDate) {
-      dates.push(newDate);
-      console.log("working finally");
-      newDate = addDays(newDate, cycle);
+      if (type != "monthly") {
+        dates.push(newDate);
+        newDate = addDays(newDate, cycle);
+      } else {
+        dates.push(newDate);
+        newDate = addDays(newDate, cycle);
+      }
     }
-
     //
-    setIncomeDeposit([...incomeDeposit, { id, amount, date, type }]);
+    setIncomeDeposit([...incomeDeposit, { id, amount, dates, type }]);
     console.log(incomeDeposit);
-    // console.log(newDate);
-    console.log(nextYearDate);
-    console.log(dates);
   };
   //
   //
