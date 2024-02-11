@@ -11,6 +11,9 @@ import {
   sub,
   addDays,
   addYears,
+  addMonths,
+  lastDayOfMonth,
+  isSameDay,
 } from "date-fns";
 //
 import "react-datepicker/dist/react-datepicker.css";
@@ -45,25 +48,53 @@ const Income = ({
         : type === "fortnightly"
         ? 14
         : type === "monthly"
-        ? true
+        ? 1
         : "one-off";
     const dates = [];
     const nextYearDate = addYears(new Date(date), 1);
     let newDate = new Date(date);
+    // let newDate = new Date("31-01-2024");
+
+    //
     //
     while (newDate <= nextYearDate) {
       if (type != "monthly") {
         dates.push(newDate);
         newDate = addDays(newDate, cycle);
-      } else {
-        dates.push(newDate);
-        newDate = addDays(newDate, cycle);
+      } else if (type === "monthly") {
+        // check if it's the last day of the month;
+        // const isEndOfMonth = (dateToCheck) => {
+        //   const endOfMonthDate = endOfMonth(dateToCheck);
+        //   return isSameDay(dateToCheck, endOfMonthDate);
+        // };
+        if (!isSameDay(newDate, endOfMonth(newDate))) {
+          // Add one month to the start of the current month
+          newDate = addMonths(newDate, cycle);
+          dates.push(newDate);
+          console.log(newDate);
+          console.log("works");
+        } else {
+          newDate = endOfMonth(newDate);
+          dates.push(newDate);
+          newDate = addMonths(newDate, cycle);
+          console.log(newDate);
+          console.log("does NOT _works");
+        }
       }
+      //
     }
     //
     setIncomeDeposit([...incomeDeposit, { id, amount, dates, type }]);
     console.log(incomeDeposit);
+    console.log(dates);
   };
+  //
+  //
+  //
+  //
+  //
+  //
+  //
   //
   //
   if (incomeDeposit.length !== 0) {
